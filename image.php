@@ -4,7 +4,8 @@ $im = imagecreatetruecolor(200, 200);
 $white = imagecolorallocate($im, 255, 255, 255);
 $blue = imagecolorallocate($im, 0, 0, 255);
 $green = imagecolorallocate($im, 0, 255, 0);
-$color = isset($_SERVER['COLOR'])?$_SERVER['COLOR']:"BLUE";
+//$color = isset($_SERVER['COLOR'])?$_SERVER['COLOR']:"BLUE";
+$color = getenv('COLOR', true) ? getenv('COLOR', true) : 'BLUE';
 
 if($color == 'BLUE') {
     imagefilledrectangle($im, 0, 0, 199, 199, $blue);
